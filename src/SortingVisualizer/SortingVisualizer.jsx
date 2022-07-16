@@ -50,6 +50,12 @@ export default class SortingVisualizer extends React.Component{
             },i*ANIMATION_SPEED)
         }
     }
+         heapSort(){
+        let ANIMATION_SPEED = document.getElementById("DELAY").value;                 
+        const n = this.state.array.length;
+        heapSortFunction(this.state.array,n,ANIMATION_SPEED);
+         console.log(this.state.array);
+    }
     
     }
     quickSort(){
