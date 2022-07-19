@@ -16,6 +16,7 @@
    width: 100%;
    display: flex;
    justify-content: center;
+       color: aliceblue;
  flex-direction: row;
 }
 .inp{
@@ -24,6 +25,7 @@
     height: 5vh;
     bottom: 100px;
     width: 800px;
+       color: aliceblue;
     font-family: poppins;
    
 }
