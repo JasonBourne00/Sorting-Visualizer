@@ -2,6 +2,8 @@ import React from "react";
 import './SortingVisualizer.css';
 import { mergeSortAnimation } from "../sortingAlg/sortingAlg";
 import { insertionSortAlgorithm } from "../sortingAlg/insertionalgorithm";
+import { heapSortFunction } from "../sortingAlg/heapSort";
+import { wrapper_bubble } from "../sortingAlg/bubbleSort";
 
 const PRIMARY_COLOUR = "#069A8E";
 const SECONDARY_COLOUR = "red";
@@ -27,6 +29,7 @@ export default class SortingVisualizer extends React.Component{
         }
         this.setState({array});
     }
+
     mergeSort(){
     let ANIMATION_SPEED = document.getElementById("DELAY").value; //animation technique starting
      const animations=mergeSortAnimation(this.state.array);
@@ -50,20 +53,18 @@ export default class SortingVisualizer extends React.Component{
             },i*ANIMATION_SPEED)
         }
     }
-         heapSort(){
+    }
+   
+    heapSort(){
         let ANIMATION_SPEED = document.getElementById("DELAY").value;                 
         const n = this.state.array.length;
         heapSortFunction(this.state.array,n,ANIMATION_SPEED);
-         console.log(this.state.array);
-    }
-    
-    }
-    quickSort(){
-
     }
     bubbleSort(){
-
+      wrapper_bubble(this.state.array);
+    
     }
+
     insertionSort(){
         let ANIMATION_SPEED = document.getElementById("DELAY").value;                 
         var blocks = document.querySelectorAll(".array-bar"); 
@@ -107,6 +108,7 @@ export default class SortingVisualizer extends React.Component{
           <button onClick={() => this.resetArray()}>Generate Array</button>
           <button onClick={() => this.mergeSort()}>Merge Sort</button>
           <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
+          <button onClick={() => this.heapSort()}>Heap Sort</button>
           <button onClick={() => this.insertionSort()}>Insertion Sort</button>
         </div>
       </div>
