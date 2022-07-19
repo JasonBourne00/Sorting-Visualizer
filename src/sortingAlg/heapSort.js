@@ -5,7 +5,6 @@ export function heapSortFunction(array,n,ANIMATION_SPEED){
 }
 
 const heapSort = async (arr,n,ANIMATION_SPEED) => {
-   // let arr = array
     let length = n
     let index = Math.floor(length / 2 - 1)
     let lastChild = length - 1
@@ -14,8 +13,6 @@ const heapSort = async (arr,n,ANIMATION_SPEED) => {
     while (index >= 0) {
       await heapify(arr, length, index,ANIMATION_SPEED)
       index--
-
-     // setPrimaryArray([...primaryArray, arr])
       if (index >= 0) {
         const barOneStyle = arrayBars[index].style;
         const barTwoStyle=arrayBars[index+1].style;
@@ -24,9 +21,6 @@ const heapSort = async (arr,n,ANIMATION_SPEED) => {
 
         await sleep(ANIMATION_SPEED)
         
-
-        //playBeep1()
-
         barOneStyle.backgroundColor = '#069A8E'
         barTwoStyle.backgroundColor = '#069A8E'
       } else {
@@ -42,11 +36,8 @@ const heapSort = async (arr,n,ANIMATION_SPEED) => {
       arr[lastChild] = swap1
       arrayBars[0].style.height=arrayBars[lastChild].style.height;
       arrayBars[lastChild].style.height=height;
-      await heapify(arr, lastChild, 0)
+      await heapify(arr, lastChild, 0,ANIMATION_SPEED)
       lastChild--
-     // playBeep2()
-
-     // setPrimaryArray([...primaryArray, arr])
 
       if (index >= 0) {
     
@@ -62,7 +53,6 @@ const heapSort = async (arr,n,ANIMATION_SPEED) => {
       }
     }
 
-   // finishedAnimation()
   }
 
   const heapify = async (arr, length, index,ANIMATION_SPEED) => {
@@ -97,7 +87,6 @@ const heapSort = async (arr,n,ANIMATION_SPEED) => {
       bar1.backgroundColor = '#069A8E'
       bar2.backgroundColor = '#069A8E'
 
-      //playBeep1()
 
       await heapify(arr, length, largest,ANIMATION_SPEED)
     }
